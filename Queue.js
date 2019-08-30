@@ -6,9 +6,9 @@ class _Node {
 }
 
 class Queue {
-  constructor(first, last) {
-    this.first = first;
-    this.last = last;
+  constructor() {
+    this.first = null;
+    this.last = null;
   }
 
   enqueue(data) {
@@ -42,3 +42,48 @@ class Queue {
     return node.value;
   }
 }
+
+function peek(stack) {
+  let currentNode = stack.first;
+  if(currentNode.next === null){
+    //console.log(currentNode.value);
+    return currentNode.value;
+  }
+  console.log(currentNode);
+  currentNode = currentNode.next;
+}
+
+function isEmpty(stack) {
+  if (!stack.first) {
+    return console.log('Queue is empty');
+  } else {
+    return console.log('Queue has things in it');
+  }
+}
+
+function display(queue) {
+  let displayedstack = '';
+  let currentNode = queue.first;
+  
+  while (currentNode !== null) {
+    displayedstack += `${currentNode.value}, `;
+    currentNode = currentNode.next;
+  }
+  return console.log(displayedstack);
+}
+
+
+
+//First in, First out
+let mtQ = new Queue();
+let starTrekQ = new Queue();
+starTrekQ.enqueue('Kirk');
+starTrekQ.enqueue('Spock');
+starTrekQ.enqueue('Uhura');
+starTrekQ.enqueue('Sulu');
+starTrekQ.enqueue('Checkov');
+starTrekQ.dequeue('McCoy');
+// console.log(JSON.stringify(starTrekQ, null, 2));
+display(starTrekQ);
+//isEmpty(mtQ);
+//peek(starTrekQ);

@@ -85,17 +85,62 @@ function is_palindrome(s) {
 // console.log(is_palindrome('Tauhida'));
 
 
+function parenFinder(str) {
+  let strStack = new Stack();
+
+  for(let i = 0; i < str.length; i++ ) {
+    
+    if (str[i] === '(') {
+      strStack.push();
+    }
+    else if (str[i] === ')') {
+      strStack.pop();
+    }
+  }
+
+  if (strStack.top === null){
+    return console.log('Enough parens');
+  } else {
+    return console.log('Missing parens');
+  }
+}
+
+
+// function sort(num) {
+//   let tempStack = new Stack();
+  
+//   while (num.top !== null){
+//     let peekAt = peek(num);
+//     let tempVar = num.pop();
+//     if (tempVar > peekAt) {
+//       tempStack.push(tempVar);
+//     }
+//     return console.log(JSON.stringify(tempStack, null, 2));
+//   }
+  
+// }
+
 
 /* LAST IN, FIRST OUT */
+const numStack = new Stack();
+numStack.push(4);
+numStack.push(8);
+numStack.push(34);
+numStack.push(6);
+numStack.push(2);
+
+
 const starTrek = new Stack();
 starTrek.push('Kirk');
 starTrek.push('Spoch');
 starTrek.push('McCoy');
 starTrek.push('Scotty');
-starTrek.pop();
-starTrek.pop();
+//starTrek.pop();
+//starTrek.pop();
 //console.log(JSON.stringify(starTrek, null, 2));
 //peek(starTrek);
 //display(starTrek);
 //isEmpty(starTrek);
-
+// parenFinder('(()');
+// parenFinder('(())');
+//console.log(sort(numStack));
