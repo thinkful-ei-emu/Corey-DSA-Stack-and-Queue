@@ -66,6 +66,23 @@ function display(stack) {
   return console.log(displayedstack);
 }
 
+function is_palindrome(s) {
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+  let strStack = new Stack();
+  let reverseStr = '';
+  for(let i = 0; i < s.length; i++ ) {
+    strStack.push(s[i]);
+  }
+
+  while (strStack.top !== null) {
+    reverseStr += strStack.pop();
+  }
+  return s === reverseStr;
+}
+// console.log(is_palindrome('dad'));
+// console.log(is_palindrome('A man, a plan, a canal: Panama'));
+// console.log(is_palindrome('1001'));
+// console.log(is_palindrome('Tauhida'));
 
 
 
@@ -75,6 +92,8 @@ starTrek.push('Kirk');
 starTrek.push('Spoch');
 starTrek.push('McCoy');
 starTrek.push('Scotty');
+starTrek.pop();
+starTrek.pop();
 //console.log(JSON.stringify(starTrek, null, 2));
 //peek(starTrek);
 //display(starTrek);
